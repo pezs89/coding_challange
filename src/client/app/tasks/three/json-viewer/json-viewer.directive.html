@@ -1,0 +1,45 @@
+<pre>
+    $: > Loading task 7H:R3:3     ■■■■■■■■■■■ 100%
+    $: > 
+
+    .:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:.
+
+                                                            Welcome! 
+
+                This task requires you to perform an API-call to our local nodeJS server and request a file. 
+                Display the content of bower.json and display it below.
+                Why not display the content with some custom css added outside these &lt;pre> tags? =)
+
+                May the AJAX calls be with you!
+
+    .:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:._.:*~*:._.:*~*:..:*~*:.
+
+
+    $: > {{(bowerJsonData && bowerJsonData.name) ? 'Data found. Powering up...' : 'No data found. Entering sleep mode...'}}
+
+</pre>
+
+<div class="bowerjson-card">
+    <ul>
+        <li>{{bowerJsonData.name}}</li>
+        <li>{{bowerJsonData.version}}</li>
+        <li>{{bowerJsonData.description}}</li>
+        <li> Authors:
+            <ul>
+                <li ng-repeat="author in bowerJsonData.authors">{{author}}</li>
+            </ul>
+        </li>
+        <li>{{bowerJsonData.license}}</li>
+        <li>{{bowerJsonData.homepage}}</li>
+        <li> Ignored folders:
+            <ul>
+                <li ng-repeat="ignoredElement in bowerJsonData.ignore">{{ignoredElement}}</li>
+            </ul>
+        </li>
+        <li> Dependecies:
+            <ul>
+                <li ng-repeat="(key, value) in bowerJsonData.dependencies">{{key}}: {{value}}</li>
+            </ul>
+        </li>
+    </ul>
+</div>
